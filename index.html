@@ -1,121 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="icon" href="/imges/favicon.png" sizes="500x500">
-    <title>IPhone 15 Project</title>
 <head>
+    <link rel="icon" href="/image/favicon.png" sizes="500x500">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faizan UI Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background: #e0e0e0; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; font-family: sans-serif; }
-        .iphone { width: 340px; height: 700px; background: #000; border-radius: 55px; border: 4px solid #333; position: relative; overflow: hidden; }
-        .status-bar { position: absolute; top: 0; width: 100%; height: 40px; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; color: white; font-size: 12px; z-index: 300; box-sizing: border-box; background: rgba(0,0,0,0.5); }
-        .battery-container { display: flex; align-items: center; gap: 5px; }
-        .battery-body { width: 25px; height: 12px; border: 1px solid white; border-radius: 2px; padding: 1px; }
-        #battery-level { height: 100%; background: #4cd964; width: 100%; }
-        
-        .screen { width: 100%; height: 100%; background: linear-gradient(135deg, #2c3e50, #000); padding-top: 40px; box-sizing: border-box; }
-        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; padding: 20px; }
-        .app-icon { width: 60px; height: 60px; border-radius: 14px; display: flex; justify-content: center; align-items: center; cursor: pointer; color: white; font-size: 10px; font-weight: bold; background: #444; }
-        .dock { position: absolute; bottom: 40px; left: 20px; right: 20px; height: 80px; background: rgba(255,255,255,0.15); border-radius: 20px; display: flex; justify-content: space-around; align-items: center; backdrop-filter: blur(10px); }
-        
-        .page { display: none; width: 100%; height: 100%; background: white; color: black; position: absolute; top: 0; z-index: 250; padding: 60px 20px 20px 20px; box-sizing: border-box; }
-        .page.active { display: block; }
-        .back-btn { background: #333; color: white; padding: 8px 15px; border-radius: 15px; border: none; cursor: pointer; margin-bottom: 20px; }
-        #lock-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: white; background: #000; position: absolute; top: 0; width: 100%; z-index: 400; }
+        html,body {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
-<body>
+<body class="bg-white text-gray-900">
 
-<div class="iphone">
-    <div class="status-bar">
-        <span id="time">14:21</span>
-        <span>WiFi</span>
-        <div class="battery-container">
-            <span id="batt-text">100%</span>
-            <div class="battery-body"><div id="battery-level"></div></div>
-        </div>
-    </div>
-    
-    <div id="lock-screen">
-        <h3>Enter Passcode</h3>
-        <input type="password" id="pin" style="padding:10px; text-align:center;" maxlength="4" placeholder="">
-        <br><button onclick="checkPin()">Unlock</button>
-    </div>
-
-    <div class="screen" id="home-screen" style="display:none;">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center p-4 md:px-20">
+        <a href="/" class="font-bold text-xl text-teal-600"><img class="" src="/image/logo.jpg" alt=""></a>
         
-        <div class="grid" id="app-grid">
-            <div class="app-icon" onclick="showPage('youtube-page')"><img style="height: 50px;" src="/imges/s1.webp" alt=""></div>
-            <div class="app-icon" onclick="showPage('settings-page')"><img style="height: 50px;" src="/imges/s2.webp" alt=""></div>
-            <div class="app-icon" onclick="showPage('photos-page')"><img style="height: 50px;" src="/imges/s3.png" alt=""></div>
-            <div class="app-icon" onclick="showPage('chat-page')"><img style="height: 50px;" src="/imges/s4.webp" alt=""></div>
-            <div class="app-icon" onclick="showPage('store-page')"><img style="height: 50px;" src="/imges/s5.webp" alt=""></div>
+
+        <div class="hidden md:flex space-x-8 font-medium flex items-center">
+            <a href="#home" class="hover:text-[#000] bg-[#FF8D28] py-2 px-4 inline-block text-white rounded-md">Home</a>
+            <a href="#about" class="hover:text-[#] py-2 px-4 bg-[#FF8D28] rounded-md text-white">About Me</a>
+            <a href="#app" class="hover:text-[#000] py-2 px-4 bg-[#FF8D28] rounded-md text-white">App</a>
+            <a href="#website" class="hover:text-[#000] py-2 px-4 bg-[#FF8D28] rounded-md text-white">Website</a>
+            <a href="#game" class="hover:text-[#000] py-2 px-4 bg-[#FF8D28] rounded-md text-white">Game</a>
         </div>
-        <div class="dock">
-            <div class="app-icon" onclick="showPage('camera-page')"><img style="height: 50px;" src="/imges/s6.webp" alt=""></div>
-            <div class="app-icon" onclick="showPage('game-page')"><img style="height: 50px;" src="/imges/s7.png" alt=""></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="p-6 md:px-20 py-8 flex flex-col md:flex-row items-center justify-between">
+        <div class="md:w-1/2">
+            <h2 class="text-xs uppercase tracking-widest text-[#9CA9EF] font-bold ">Hello</h2>
+            <h1 class="text-4xl md:text-7xl font-bold my-2 text-[#232F74] ">I’m Faizan</h1>
+            <p class="text-lg text-gray-600 mb-6">UI Designer</p>
+            <button class="border-2 border-teal-500 text-teal-500 px-6 py-2 rounded-md hover:bg-teal-50 transition text-sm">HIRE ME</button>
         </div>
-    </div>
+        <div class="mt-8 md:mt-0 w-full md:w-1/3">
+            <div class="w-10/5 h-100  rounded-2xl flex items-center justify-center text-gray-500"><img class="" src="/image/Group 65.png" alt=""></div>
+        </div>
+    </section>
 
-    <!-- REGISTERED PAGES -->
-    <div id="youtube-page" class="page"><button class="back-btn" onclick="hideAllPages()">Back</button><h3>YouTube</h3>
-        <div style="width: 300px; height: 150px;  border-radius: 30px;"><img style="height: 160px; border-radius: 30px;" src="/imges/s9.jpg" alt=""></div>
-        <br>
-        <div style="width: 300px; height: 150px; border-radius: 30px;"><img style="height: 160px; border-radius: 30px;" src="/imges/s10.jpg" alt=""></div>
-        <br>
-        <div style="width: 300px; height: 150px; border-radius: 30px;"><img style="height: 160px; border-radius: 30px;" src="/imges/s11.jpg" alt=""></div>
-    </div>
-    <div id="settings-page" class="page"><button class="back-btn" onclick="hideAllPages()">Back</button><h3>Settings</h3><button onclick="charge()">Charge Battery</button></div>
-    <div id="photos-page" class="page"><button class="back-btn" onclick="hideAllPages()">Back</button><h3>Photos</h3>
-    <div style="width: 300px; height: 150px;  border-radius: 30px;"><img style="height: 160px; border-radius: 30px;" src="/imges/s13.jpg" alt=""></div>
-        <br>
-        <div style="width: 300px; height: 150px; border-radius: 30px;"><img style="height: 160px; border-radius: 30px;" src="/imges/s14.jpg" alt=""></div>
-        <br>
-        <div style="width: 300px; height: 150px; border-radius: 30px;"><img style="height: 160px; border-radius: 30px; text-align: center;" src="/imges/s12.jpg" alt=""></div>
-    
-    </div>
-    <div id="chat-page" class="page"><button class="back-btn" onclick="hideAllPages()">Back</button><h3>Chat</h3>
-    <div style="width: 300px; height: 30px; color: #fff; border-radius: 50px; background-color: darkgrey;"><h3 style="margin-top: 15px; margin-left: 10px;">Chat</h3></div>
-    <div></div>
-    </div>
-    <div id="camera-page" class="page"><button class="back-btn" onclick="hideAllPages()">Back</button><h3>Camera</h3></div>
-    <div id="game-page" class="page"><button class="back-btn" onclick="hideAllPages()">Back</button><h3>Fire Game</h3></div>
-    <div id="store-page" class="page"><button class="back-btn" onclick="hideAllPages()">Back</button><h3>App Store</h3>
-        <button style="padding: 20px; background-color: #5856d6; color: #fff; border-radius: 14px;" onclick="install('Maps', '#af52de')">Install Maps</button>
-        <button style="padding: 20px; background-color: #5856d6; color: #fff; border-radius: 14px;" onclick="install('Music', '#5856d6')">Install Music</button>
-        <br><br>
-            
-        <button style="padding: 20px; background-color: #5856d6; color: #fff; border-radius: 14px;" onclick="install('Granny', '#5856d6')">Granny</button>
+    <!-- About Me Section -->
+    <section id="about" class="p-6 md:px-20 py-8">
+        <h2 class="text-2xl font-bold mb-4">About Me</h2>
+        <div class="flex flex-col md:flex-row items-center gap-6">
+            <div class="w-full md:w-1/3 h-48  rounded-2xl flex items-center justify-center text-gray-500"><img style="margin-top: 35px; margin: ;" src="/image/Group 66.png" alt=""></div>
+            <div class="flex-1">
+                
+                <p class="text-gray-600 text-lg mb-6 text-1px leading-relaxed p-3">
+                    Main Faizan hoon, ek passionate UI Designer aur Web Developer. 
+                     
+                     
+                </p>
+                <div class="flex space-x-3">
+                    <button class="bg-teal-500 text-white px-6 py-2 rounded-md hover:bg-teal-600 transition text-sm">HIRE ME</button>
+                    <button class="border-2 border-teal-500 text-teal-500 px-6 py-2 rounded-md hover:bg-teal-50 transition text-sm">Download CV</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App, Website & Game Sections -->
+    <main class="p-6 md:px-20 py-8">
+        <section id="app" class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">App</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-6 bg-teal-500 text-white rounded-2xl w-full/1 h-43">
+                    <h3 class="text-lg font-bold mb-1 ">Faizan Mobile App</h3>
+                <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at augue
+                         congue, interdum lorem sit amet, posuere enim.
+                          Nam pellentesque sodales elit, ut rutrum purus. Nulla a 
+                         leo ligula.</p>
+                </div>
+                <div class="p-6 bg-indigo-900 text-white rounded-2xl">
+                     <div class="p-6">
+                <h3 class="text-lg font-bold mb-1 ">iPhone 15 Project</h3>
+                <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at augue
+                         congue, interdum lorem sit amet, posuere enim.
+                          Nam pellentesque sodales elit, ut rutrum purus. Nulla a 
+                         leo ligula.</p>
+                          </div>
+                </div>
+            </div>
+        </section>
         
-    </div>
-</div>
+        <section id="website" class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">Website</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-6 bg-teal-500 text-white rounded-2xl">
+                    <div class="p-6">
+                <h3 class="text-lg font-bold mb-1 ">Usa</h3>
+                <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at augue
+                         congue, interdum lorem sit amet, posuere enim.
+                          Nam pellentesque sodales elit, ut rutrum purus. Nulla a 
+                         leo ligula.</p>
+                          </div>
+                </div>
+                <div class="p-6 bg-indigo-900 text-white rounded-2xl">
+                    <div class="p-6">
+                <h3 class="text-lg font-bold mb-1 ">Pakistan</h3>
+                <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at augue
+                         congue, interdum lorem sit amet, posuere enim.
+                          Nam pellentesque sodales elit, ut rutrum purus. Nulla a 
+                         leo ligula.</p>
+                          </div>
+                </div>
+            </div>
+        </section>
 
-<script>
-    let b = 100;
-    setInterval(() => {
-        if(b > 0) { b--; document.getElementById('batt-text').innerText = b + "%"; document.getElementById('battery-level').style.width = b + "%"; }
-        const t = new Date();
-        document.getElementById('time').innerText = t.getHours() + ":" + t.getMinutes();
-    }, 10000);
+        <section id="game">
+           <a href="https://waqar-ahmed-dev01.github.io/fire3d/"> <h2 class="text-2xl font-bold mb-4">Game</h2>
+            <div class="p-6 bg-teal-500 text-white rounded-2xl md:w-1/2">
+                <div class="p-6">
+                <h3 class="text-lg font-bold mb-1 ">Fire 3D</h3>
+                <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at augue
+                         congue, interdum lorem sit amet, posuere enim.
+                          Nam pellentesque sodales elit, ut rutrum purus. Nulla a 
+                         leo ligula.</p>
+                          </div>
+            </div></a>
+        </section>
+    </main>
 
-    function charge() { b = 100; document.getElementById('batt-text').innerText = "100%"; document.getElementById('battery-level').style.width = "100%"; }
-    function checkPin() { if(document.getElementById('pin').value==="0000"){ document.getElementById('lock-screen').style.display='none'; document.getElementById('home-screen').style.display='block'; } else alert("Wrong!"); }
-    function showPage(id) { document.getElementById(id).classList.add('active'); }
-    function hideAllPages() { document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); }
-    
-    function install(name, color) {
-        const g = document.getElementById('app-grid');
-        const id = name.toLowerCase() + '-page';
-        const n = document.createElement('div');
-        n.className='app-icon'; n.style.backgroundColor=color; n.innerText=name;
-        n.onclick = () => showPage(id);
-        g.appendChild(n);
-        
-        const p = document.createElement('div');
-        p.id = id; p.className = 'page';
-        p.innerHTML = `<button class="back-btn" onclick="hideAllPages()">Back</button><h3>${name} App</h3>`;
-        document.querySelector('.iphone').appendChild(p);
-        alert(name + ' installed!');
-        hideAllPages();
-    }
-</script>
 </body>
 </html>
